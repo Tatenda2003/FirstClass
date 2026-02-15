@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 152 69% 45%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 152 69% 45%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 20% 10%;
+
+    --success: 152 69% 45%;
+    --success-foreground: 220 20% 10%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 152 69% 45%;
+
+    --radius: 0.75rem;
+
+    /* Material Colors */
+    --metal: 215 25% 50%;
+    --metal-glow: 215 40% 60%;
+    --plastic: 38 92% 50%;
+    --plastic-glow: 38 100% 60%;
+    --paper: 30 40% 55%;
+    --paper-glow: 30 50% 65%;
+    --glass: 185 80% 45%;
+    --glass-glow: 185 90% 55%;
+    --other: 260 50% 60%;
+    --other-glow: 260 60% 70%;
+
+    /* Status Colors */
+    --status-normal: 152 69% 45%;
+    --status-warning: 38 92% 50%;
+    --status-critical: 0 72% 51%;
+    --status-offline: 220 10% 40%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(152 69% 45% / 0.2), hsl(185 80% 45% / 0.1));
+    --gradient-card: linear-gradient(180deg, hsl(220 18% 15%), hsl(220 18% 12%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(152 69% 45% / 0.3);
+    --shadow-card: 0 4px 24px hsl(220 20% 5% / 0.5);
+
+    --sidebar-background: 220 18% 11%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 152 69% 45%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 152 69% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .card-glow {
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .card-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .status-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .counter-glow {
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  .material-metal {
+    --material-color: hsl(var(--metal));
+    --material-glow: hsl(var(--metal-glow));
+  }
+
+  .material-plastic {
+    --material-color: hsl(var(--plastic));
+    --material-glow: hsl(var(--plastic-glow));
+  }
+
+  .material-paper {
+    --material-color: hsl(var(--paper));
+    --material-glow: hsl(var(--paper-glow));
+  }
+
+  .material-glass {
+    --material-color: hsl(var(--glass));
+    --material-glow: hsl(var(--glass-glow));
+  }
+
+  .material-other {
+    --material-color: hsl(var(--other));
+    --material-glow: hsl(var(--other-glow));
+  }
+}
